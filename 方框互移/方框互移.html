@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			body {
+				width: 800px;
+				height: 800px;
+				transform: translate3d(0, 0, 0);
+			}
+			
+			.clearfix {
+				zoom: 1;
+			}
+			
+			.clearfix:before,
+			.clearfix:after {
+				content: "\0020";
+				display: block;
+				height: 0;
+				overflow: hidden;
+			}
+			
+			.clearfix:after {
+				clear: both;
+			}
+			
+			body {
+				background: #666;
+			}
+			
+			.dot {
+				width: 10.5em;
+				height: 10.5em;
+				position: relative;
+			}
+			
+			.dot:before,
+			.dot:after {
+				content: "";
+				position: absolute;
+				display: block;
+				top: 0;
+				left: 0;
+				width: 1.5em;
+				height: 1.5em;
+				border-radius: 100%;
+				box-shadow: 3em 0 0, 6em 0 0, 9em 0 0, 0 3em 0 0, 3em 3em 0, 6em 3em 0, 9em 3em 0, 0 6em 0 0, 3em 6em 0, 6em 6em 0, 9em 6em 0, 0 9em 0 0, 3em 9em 0, 6em 9em 0, 9em 9em 0;
+			}
+			
+			.dot:after {
+				animation: cross 2s infinite ease-in;
+				color: #fff;
+				background: #fff;
+			}
+			
+			.dot:before {
+				animation: cross 2s infinite ease-in -1s;
+				color: #ffcc33;
+				background: #ffcc33;
+			}
+			
+			@keyframes cross {
+				0%,
+				100% {
+					transform: translate(-1.5em, -1.5em);
+				}
+				25% {
+					transform: translate(-1.5em, 3em);
+				}
+				50% {
+					transform: translate(3em, 3em);
+				}
+				75% {
+					
+					transform: translate(3em, -1.5em);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class='dot'></div>
+	</body>
+
+<html>

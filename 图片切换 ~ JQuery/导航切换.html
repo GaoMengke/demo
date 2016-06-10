@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<style>
+  		body{
+  		  font-size: 0px;
+  		}
+  		#all{
+  		  width: 100%;
+        height: 100%;
+  		  cursor: pointer;
+  		}
+		  #header{
+		    width: 100%;
+		    height: 80px;
+		    border-bottom: gainsboro solid 5px;
+		    position: relative;
+		  }
+		  #header ul{
+		    display: inline-block;
+		    width: 100%;
+        height: 100%;
+        
+		  }
+		  #header ul li{
+		    width: 25%;
+        height: 80px;
+		    display: inline-block;
+		    text-align: center;
+		    line-height: 80px;
+		    font-size: 35px;
+		  }
+		  #dong{
+		    width:200px;
+		    height: 7px;
+		    position: absolute;
+		    bottom: 0px;
+		    background: deepskyblue;
+		  }
+		  #promo{
+		    width: 100%;
+		    height: 85%;
+		  }
+		  #promo ul{
+		    height: 100%;
+		  }
+		  #promo ul li:nth-child(odd){
+		    background: yellow;
+		    height: 100%;
+        display:inline-block;
+		  }
+		  #promo ul li:nth-child(even){
+        background: skyblue;
+        height: 100%;
+        display:inline-block;
+      }
+		</style>
+	</head>
+	<body>
+	  <div id="all">
+	    <div id="header">
+	      <ul>
+	        <li>推荐</li>
+	        <li>健身</li>
+	        <li>减脂</li>
+	        <li>塑型</li>	        
+	      </ul>
+	      <div id="dong"></div>
+	    </div>
+	    <div id="promo">
+	      <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>         
+        </ul>
+	    </div>
+	    
+	    
+	  </div>
+	  <script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
+	  <script>
+	    
+	    var li_width = $("ul li").width();
+	    var dong_width = $("#dong").width()/2;
+	    var leng = li_width/2-dong_width;
+	    var aa = $(window).width();
+	    var bb = aa*4;
+	    var index = 0;
+	    
+	    console.log(aa)
+	    $("#dong").css({
+	      left:leng
+	    })
+	    $("#header ul li").click(function(){
+	      var index = $(this).index();
+	      $("#dong").animate({
+	        left:leng + li_width*index
+	      })
+	    })
+	    $("#promo ul").width(bb);
+	    $("#promo ul li").width(aa);
+	    
+	    $("#header ul li").click(function(){
+	      index = $(this).index();
+	      $("#promo ul").animate({
+	      marginLeft:-aa*index
+	      
+	    })
+	    })
+	    
+	    
+	    
+	  </script>
+	</body>
+</html>

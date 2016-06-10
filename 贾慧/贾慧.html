@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link href='http://api.youziku.com/webfont/CSS/56fc915ef629d80ac8f9f91e' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<title></title>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			div{
+				width: 1349px;
+				height: 800px;
+				position: relative;
+				overflow: hidden;
+			}
+			.one{
+				background: #4791FF;
+			}
+			.two{
+				background: #25282C;
+				 /*position: absolute;*/
+			    overflow: hidden;
+			}
+			.thrid{
+				background: #DFE930;
+				width: 1149px;
+				height: 240px;
+				padding:280px 100px;
+			}
+			.one .img1{
+				position: absolute;
+				margin: 20% 40%;
+			}
+			.one .img2{
+				position: absolute;
+				bottom: 120px;
+				right: 120px;
+				transform-origin: center;
+				/*animation: mysecond 3s linear infinite;*/ 
+			}
+			@-webkit-keyframes mysecond{
+				0%{
+					transform: rotateY(0deg);
+				}
+				30%{
+					transform: rotateY(180deg);
+				}
+				60%{
+					transform: rotateY(0deg);
+				}
+			}
+			.font_h{
+				width: 460px;
+				height: 60px;
+				color: #fff;
+				font-family:'minijianyaya26fc11fc15260'; 
+				position: absolute;
+				left: 130px;
+				top: 80px;
+				font-size: 38px;
+			}			
+			.one p{
+				width: 100%;
+				height: 60px;
+				font-family: "微软雅黑";
+				font-size: 21px;
+				font-weight: bold;
+				color: #B9B9B6;
+				display: block;
+				opacity: 0;
+				margin-left: 200px;
+				
+			}
+			.delay1{
+				margin-top: 300px;
+				animation-delay: 0.75s;
+			}
+			.delay2{
+				margin-top: 60px;
+				animation-delay: 1s;
+			}
+			.two img{
+				width: 588px;
+				border: 5px solid #B9B9B6;
+				border-radius: 6px;
+				display: block;
+				margin: 120px auto;
+				opacity: 0;
+			}
+			.two #canvas{
+			    position: absolute;
+			  }
+			.anim1{
+				animation: myfirst 2s ease-in-out forwards;
+			}
+			@-webkit-keyframes myfirst{
+				0%{
+					opacity: 0;
+					width: 100px;				
+					transform: rotate(30deg) translate(0,100px);
+				}
+				100%{
+					opacity: 1;
+					width: 888px;
+					transform:rotate(360deg) translate(0,0);
+				}
+			}
+			.course_box{ 
+				padding-top:10px;
+				width:255px;
+				height:155px;
+				background:#FFCC66;
+				float:left;
+				cursor:pointer;
+				color:#fff;
+				display: none;
+			}
+		 	.course_box h3{
+				font-size:24px;
+				font-weight:bold;
+				text-align:center;
+			}
+	
+			.course_box p{
+				width:255px;
+				height:155px;
+				position:absolute;
+				left:0;
+				top:0;			
+				opacity:0.5;
+				filter:alpha(opacity=50);
+				display:none;
+			}
+			.course_box p span{
+				line-height:25px;
+				display:block;
+				text-align:center;
+				margin-top: 10px;
+			}
+			.tz_blue{
+				background:#2d8af1;
+				margin-left:20px;
+			}
+			.tz_gray{
+				background:#666;
+				margin-left:20px;
+			}
+			.tz_org{
+				background:#ff6e1a;
+				margin-left:20px;
+			}
+			.tz_yelloww{
+				background:#64d500;
+				margin-left:20px;
+			}
+			.display{
+				display: block;
+			}
+			.thrid .blue1{
+				position: absolute;
+				bottom: 100px;
+				right: 80px;
+				animation: mythird 5s linear infinite;
+			}
+			@-webkit-keyframes mythird{
+				0%{
+					right: 80px;
+					bottom: 100px;
+				}
+				13%{
+					bottom: 130px;
+				}
+				20%{
+					bottom: 160px;
+				}
+				40%{
+					bottom: 100px;
+				}
+				60%{
+					bottom: 160px;
+				}
+				80%{
+					bottom: 100px;
+				}
+				100%{
+					right: 1320px;
+					bottom: 100px;
+				}
+			}
+			.thrid .blue2{
+				position: absolute;
+				bottom: -166px;
+				left: 0;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one">
+			<img src="img/ico_dream.png" class="img1"/>
+			<img src="img/duola-a-meng_40.png" class="img2 animated swing infinite"/>
+			<h1 class="font_h animated hinge">this is my first zone~</h1>
+			<p class="delay1">
+				对于世界，我微不足道，但对于我自己，我就是全部。
+			</p>
+			<p class="delay2">
+				没有思考的生活，只会是庸庸碌碌的重复。
+			</p>
+		</div>
+		<div class="two">
+			<!--利用html5的canvas标签制作的一款jQuery动态背景插件,				
+			彩色小球无规则运动，可以跟随鼠标移动，最后消失-->
+			<canvas id="canvas"></canvas>
+			<img src="img/28731-106.jpg" />
+		</div>
+		<div class="thrid">			
+            <div class="course_box tz_blue">
+            	<h3>iOS</h3>
+            	<p class="desc">
+	                <span>&nbsp;</span>
+	                <span>熟悉 Mac Fundamental</span>
+            	</p>
+            </div>
+			<div class="course_box tz_gray">
+				<h3>Web</h3>
+				<p class="desc">
+                    <span>&nbsp;</span>                            					<span>JavaScript、ActionScript、CSS、xHTML</span>
+				</p>
+			</div>
+			<div class="course_box tz_org">
+				<h3>c++</h3>
+				<p class="desc">
+                    <span>&nbsp;</span>
+                    <span>数据类型与表达式 、数组、指针  类和对象 继承与派生 多态与虚函数</span>
+				</p>
+			</div>
+            <div class="course_box tz_yelloww">
+            	<h3>PhotoShop</h3>
+            	<p class="desc">
+                    <span>&nbsp;</span>
+                    <span>工具、蒙版、选区、滤镜、快捷键</span>
+            	</p>
+            </div>
+            <img  src="img/20120325044753840.png" class="blue1"/>
+            <img src="img/1.png" class="blue2"/>
+		</div>
+		
+		<script src="js/hBgSnow-1.0.1.min_.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(window).scroll(function () {
+		        if ($(window).scrollTop() != 0) {
+		            $('p').addClass('animated fadeInRight');
+		        }
+		        else {
+		            $('p').removeClass('animated fadeInRight');
+		        }
+		        if($(window).scrollTop() > 600) {
+		       	$('.two img').addClass('anim1');
+		        }else {
+		            $('.two img').removeClass('anim1');
+		        }
+		        if($(window).scrollTop() > 1300) {
+		       	$('.course_box').addClass('display animated bounce');
+		        }else {
+		            $('.course_box').removeClass('display animated bounce');
+		        }
+//		        console.log($(window).scrollTop());
+			});
+			
+			hBgSnow({
+		      "canvas": "canvas",
+		      "colors": ["#00BCD4", "#CDDC39", "#E91E63", "#009688", "#FF6600", "white"],
+		      "snowsCount": 100,	//背景小球数量，默认值50.
+		      "snowSize": 5,	//背景小球半径最大值，默认值5.
+		      "shadowSize": 3,	//背景小球的边缘模糊值，默认值3.
+		      "spedMaxX": 0.3,	//垂直方向最大移动速度值，单位px.
+		      "spedMaxY": 0.3,	//水平方向最大移动速度值，单位px.
+		      "freshTime": 80,	//每帧刷新时间，毫秒为单位，默认值80.
+		      "onmousemove": {	//小球是否跟随鼠标移动.
+		        "run": true,	//true时，小球跟随鼠标移动，false则不跟随鼠标移动，默认值false.
+		        "getRadious": 100	//设置跟随鼠标移动的小球范围，范围为以鼠标坐标为原点，半径为getRadious的圆的范围.
+		      }
+		    });
+		    
+			$(".course_box").hover(function(){
+				$(this).addClass("animated swing");
+				$(this).find(".desc").show().removeClass("fadeOut").addClass("animated fadeIn");
+			},function(){
+				$(this).removeClass("animated swing");
+				$(this).find(".desc").hide().removeClass("fadeIn").addClass("animated fadeOut");
+			});
+			$('.one .img2').click(function(){
+				$('html,body').animate({ scrollTop: 1800 }, 600);
+			});
+			
+			//移动端touch事件（相当于PC上的mouse事件）测试，zepto中的tap事件替代PC端click事件；
+//			window.ontouchstart = function(){
+//				$('.thrid h3').css('color','black');
+//			};
+//			window.ontouchmove = function(){
+//				$('.thrid h3').css('color','red');
+//			};
+//			window.ontouchend = function(){
+//				$('.thrid h3').css('color','yellow');
+//			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style>
+      body{
+        background: linear-gradient(45deg,pink,skyblue);
+      }
+      .content{
+        width: 850px;
+        height: 260px;
+        font-size: 0px;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        margin-left: -425px;
+        margin-top: -130px;
+        background: linear-gradient(45deg,pink,skyblue);
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 10px;
+      }
+      .textbox{
+        width: 850px;
+        height: 80px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        overflow: hidden;
+        border-bottom: 2px solid white;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+      .ul{
+        width: 850px;
+        height: 180px;
+      }
+      .li{
+        width: 850px;
+        height: 60px;
+      }
+      .ul li span{
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        line-height: 60px;
+        text-align: center;
+        border: 2px solid white;
+        box-sizing: border-box;
+        font-size: 20px;
+        border-radius: 5px;
+      }
+      .ul li .spe{
+        width:130px ;
+        height:60px;
+      }
+      .on{
+        background:rgba(255,255,255,0.6)!important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="textbox"></div>
+      <ul class="ul">
+        <li id="li0"></li>
+        <li id="li1"></li>
+        <li id="li2"></li>
+      </ul>
+      <div class="del">clear</div>
+      <div class="enter">enter</div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
+    <script>
+      var arr=[[1,2,3,4,5,6,7,8,9,0,'a','b','clear'],
+      ['c','d','e','f','g','h','i','j','k','l','m','n','A/a'],
+      ['o','p','q','s','t','u','v','w','x','y','z','❤','pick']];
+      
+      var brr=[];
+      
+      $(".ul li").append("<span></span><span></span><span></span><span></span><span></span>\<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class=spe></span>")      
+      var li=$('.ul li');
+      for(var i=0;i<li.length;i++){
+        
+        for(var j=0;j<li.eq(0).find("span").length;j++){
+          li.eq(i).find("span").eq(j).html(arr[i][j]);
+        }
+      }
+      
+      li.eq(0).find("span").eq(0).addClass("on");
+      
+      $("span").click(function(){ 
+        var a = $(this).html();
+        
+        if(($(this).html()=="A/a")||($(this).html()=="pick")){
+          
+         return ;
+        }
+            brr.push(a);
+        if($(this).html()=="clear"){
+            brr.pop();
+            brr.pop();
+            $(".textbox").empty();
+            $(".textbox").append(brr);
+        return ;
+        }                                     
+            $(".textbox").empty();
+            $(".textbox").append(brr);
+      
+      })
+      var index = 0;
+      var left_index = 0;
+      var right_index = 0;
+      var leng = $("ul li").eq(0).find("span").length;
+      var li = $("ul li").eq(index).find("span").eq(left_index);
+      document.onkeydown=function(event){
+              
+             var e = event || window.event || arguments.callee.caller.arguments[0];
+             if(e && e.keyCode==37){ 
+                  //left
+
+                 left_index--;
+                 if(left_index==-1){
+                   left_index=leng;
+                   left_index--;
+                 }
+                 $("ul li").find("span").removeClass("on");
+                 $("ul li").eq(index).find("span").eq(left_index).addClass("on");
+                 }
+             
+             
+             if(e && e.keyCode==38){ 
+                  //up
+                   index--;
+                   if(index==-1){
+                     index=2;
+                   }
+                 $("ul li").find("span").removeClass("on");
+                 $("ul li").eq(index).find("span").eq(left_index).addClass("on");
+             }
+             if(e && e.keyCode==39){ 
+                  //right
+                   left_index++;
+                 if(left_index==leng){
+                   left_index=-1;
+                   left_index++;
+                 }
+                 $("ul li").find("span").removeClass("on");
+                 $("ul li").eq(index).find("span").eq(left_index).addClass("on");
+                 
+                 
+             }
+             if(e && e.keyCode==40){ 
+                  //down
+//             alert(1)
+               index++;
+               console.log(index)
+               if(index==3){
+                 index=0;
+               }
+                 $("ul li").find("span").removeClass("on");
+                 $("ul li").eq(index).find("span").eq(left_index).addClass("on");
+             }
+             if(e && e.keyCode==13){ 
+                  //enter
+              if(($("ul li").find(".on").html()=="A/a")||($("ul li").find(".on").html()=="pick")){
+              
+                  return ;
+              } 
+              var b = $("ul li").find(".on").html();
+              $(".textbox").append(b);
+               brr.push(b);
+               if(($("ul li").find(".on").html())=="clear"){
+                 
+                    brr.pop();
+                    brr.pop();
+                    $(".textbox").empty();
+                    $(".textbox").append(brr);
+                return ;
+                
+                } 
+                     
+             }
+      
+      }
+      
+      
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="css/base.css" />
+    <title></title>
+    <style>
+    /*CSS源代码*/
+    @import 'http://cdn.gbtags.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css';
+      body{
+        font-family: 'microsoft yahei',Arial,sans-serif;
+      }
+      h3 {
+        display: inline-block;
+        padding: 10px;
+        background: orange;
+        border: 5px;
+        border-radius: 5px;
+        opacity: .6;
+        font-size: 16px;
+      }
+      .p {
+        text-align: center;
+        padding-top: 40px;
+        font-size: 13px;
+      }
+      .full-screen {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML代码片段中请勿添加<body>标签 //-->
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#mycarousel" data-slide-to="0"></li>
+    <li data-target="#mycarousel" data-slide-to="1"></li>
+    <li data-target="#mycarousel" data-slide-to="2"></li>
+    <li data-target="#mycarousel" data-slide-to="3"></li>
+    <li data-target="#mycarousel" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item">
+      <img src="http://www.gbtags.com/gb/laitu/2000x1250/6acce9/ffffff" data-color="lightblue" alt="First Image">
+      <div class="carousel-caption">
+        <h3>编号：1</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://www.gbtags.com/gb/laitu/2000x1250/f2a12e/ffffff" data-color="firebrick" alt="Second Image">
+      <div class="carousel-caption">
+        <h3>编号：2</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://www.gbtags.com/gb/laitu/2000x1250/f3413c/ffffff" data-color="violet" alt="Third Image">
+      <div class="carousel-caption">
+        <h3>编号：3</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://www.gbtags.com/gb/laitu/2000x1250/68c368/ffffff" data-color="lightgreen" alt="Fourth Image">
+      <div class="carousel-caption">
+        <h3>编号：4</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://www.gbtags.com/gb/laitu/2000x1250/222222/ffffff" data-color="tomato" alt="Fifth Image">
+      <div class="carousel-caption">
+        <h3>编号：5</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">上一张</span>
+  </a>
+  <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">下一张</span>
+  </a>
+</div>
+<!-- 推荐开源CDN来选取需引用的外部JS //-->
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+      /*Javascript代码片段*/
+    
+    var $item = $('.carousel .item');
+    var $wHeight = $(window).height();
+    
+    $item.height($wHeight); 
+    $item.addClass('full-screen');
+    
+    var $numberofSlides = $('.item').length;
+    var $currentSlide = Math.floor((Math.random() * $numberofSlides));
+    
+    $('.carousel-indicators li').each(function(){
+      var $slideValue = $(this).attr('data-slide-to');
+      if($currentSlide == $slideValue) {
+        $(this).addClass('active');
+        $item.eq($slideValue).addClass('active');
+      } else {
+        $(this).removeClass('active');
+        $item.eq($slideValue).removeClass('active');
+      }
+    });
+    
+    $('.carousel img').each(function() {
+      var $src = $(this).attr('src');
+      var $color = $(this).attr('data-color');
+      $(this).parent().css({
+        'background-image' : 'url(' + $src + ')',
+        'background-color' : $color
+      });
+      $(this).remove();
+    });
+    
+    $(window).on('resize', function (){
+      $wHeight = $(window).height();
+      $item.height($wHeight);
+    });
+    
+    $('.carousel').carousel({
+      interval: 6000,
+      pause: "false"
+    });
+    </script>
+  </body>
+</html>
